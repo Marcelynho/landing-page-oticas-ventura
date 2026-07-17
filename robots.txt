@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oticasventura.com.br/sitemap.xml
