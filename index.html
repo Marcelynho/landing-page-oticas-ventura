@@ -10,30 +10,6 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SN6C8MM7GD"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-SN6C8MM7GD');
-  </script>
-<!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2178899632677027');
-    fbq('track', 'PageView');
-  </script>
-<noscript>
-<img height="1" src="https://www.facebook.com/tr?id=2178899632677027&amp;ev=PageView&amp;noscript=1" style="display:none" width="1"/>
-</noscript>
 <style>
     :root{
       --navy:#071a38;
@@ -255,7 +231,44 @@
       .floating{right:14px;bottom:14px}
       .footer-inner{align-items:flex-start;justify-content:center;flex-direction:column;gap:4px}
     }
-  </style>
+  
+    /* Preferências de cookies */
+    .cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:1000;display:none;max-width:1080px;margin:auto;background:rgba(255,255,255,.98);color:var(--text);border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 70px rgba(2,12,29,.28);backdrop-filter:blur(14px)}
+    .cookie-banner.show{display:block}
+    .cookie-banner-inner{display:flex;align-items:center;justify-content:space-between;gap:22px;padding:20px 22px}
+    .cookie-copy{max-width:680px}
+    .cookie-copy strong{display:block;color:var(--navy);font-size:17px;margin-bottom:4px}
+    .cookie-copy p{font-size:14px;line-height:1.55;color:var(--muted)}
+    .cookie-copy button,.footer-cookie-button{border:0;background:transparent;color:#87aee8;font:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+    .cookie-copy button{color:var(--blue);font-weight:800;margin-left:4px}
+    .cookie-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;min-width:320px}
+    .cookie-action{min-height:46px;padding:0 17px;border-radius:13px;border:1px solid var(--line);font:inherit;font-size:14px;font-weight:800;cursor:pointer;transition:.2s}
+    .cookie-action:hover{transform:translateY(-1px)}
+    .cookie-action.reject{background:#fff;color:var(--navy)}
+    .cookie-action.accept{background:linear-gradient(135deg,var(--navy-2),var(--blue));border-color:transparent;color:#fff;box-shadow:0 10px 24px rgba(29,105,216,.22)}
+    body.cookie-banner-open .floating{opacity:0;pointer-events:none;transform:translateY(14px)}
+    .footer-privacy{margin-top:8px;display:flex;gap:14px;flex-wrap:wrap}
+    .footer-cookie-button{font-size:12px}
+    .privacy-modal{position:fixed;inset:0;z-index:1100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,12,29,.72)}
+    .privacy-modal.show{display:flex}
+    .privacy-dialog{position:relative;width:min(720px,100%);max-height:min(82vh,760px);overflow:auto;background:#fff;border-radius:24px;padding:30px;box-shadow:0 30px 90px rgba(0,0,0,.34)}
+    .privacy-dialog h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:30px;line-height:1.15;margin-bottom:14px}
+    .privacy-dialog h3{color:var(--navy);font-size:17px;margin:20px 0 6px}
+    .privacy-dialog p,.privacy-dialog li{color:var(--muted);font-size:14px;line-height:1.65}
+    .privacy-dialog ul{padding-left:20px}
+    .privacy-dialog .privacy-date{font-size:12px;margin-top:22px;color:#8290a6}
+    .privacy-close{position:absolute;right:16px;top:14px;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--navy);font-size:22px;cursor:pointer}
+    @media(max-width:760px){
+      .cookie-banner{left:10px;right:10px;bottom:10px;border-radius:18px}
+      .cookie-banner-inner{align-items:stretch;flex-direction:column;padding:17px;gap:14px}
+      .cookie-actions{display:grid;grid-template-columns:1fr 1fr;min-width:0;width:100%}
+      .cookie-action{padding:0 10px}
+      .privacy-dialog{padding:27px 20px 24px;border-radius:20px}
+      .privacy-dialog h2{padding-right:38px;font-size:26px}
+    }
+    @media(max-width:390px){.cookie-actions{grid-template-columns:1fr}.cookie-action.accept{order:-1}}
+
+</style>
 <style>
     body{background:linear-gradient(180deg,#f7faff 0,#fff 18%,#fff 100%)}
     .hero{padding:68px 0 72px;background:radial-gradient(circle at 15% 5%,rgba(216,180,108,.22),transparent 25%),radial-gradient(circle at 88% 18%,rgba(29,105,216,.20),transparent 28%),linear-gradient(135deg,#f8fbff 0%,#eef5ff 48%,#ffffff 100%)}
@@ -589,6 +602,10 @@ header{box-shadow:0 8px 24px rgba(6,26,58,.06)}
 <div class="container footer-inner">
 <div>
 <p>© <span id="year"></span> Óticas Ventura. Todos os direitos reservados.</p>
+<div class="footer-privacy">
+<button class="footer-cookie-button" id="manageCookies" type="button">Gerenciar cookies</button>
+<button class="footer-cookie-button open-privacy" type="button">Política de privacidade</button>
+</div>
 <p class="developer-credit">
 <span>Desenvolvido por</span>
 <a aria-label="Falar com a Óticas Ventura pelo WhatsApp" class="developer-logo-link" href="https://wa.me/5521981854854" rel="noopener noreferrer" target="_blank" title="MC digital">
@@ -604,8 +621,122 @@ header{box-shadow:0 8px 24px rgba(6,26,58,.06)}
 </div>
 </div>
 <span class="v2-badge">Site 2.0</span></footer>
+
+<div aria-describedby="cookieText" aria-label="Preferências de cookies" class="cookie-banner" id="cookieBanner" role="dialog">
+<div class="cookie-banner-inner">
+<div class="cookie-copy">
+<strong>Sua privacidade importa</strong>
+<p id="cookieText">Usamos cookies opcionais do Google Analytics e Meta Pixel para medir visitas e cliques. O site funciona normalmente mesmo que você recuse.<button class="open-privacy" type="button">Saiba mais</button></p>
+</div>
+<div class="cookie-actions">
+<button class="cookie-action reject" id="rejectCookies" type="button">Recusar opcionais</button>
+<button class="cookie-action accept" id="acceptCookies" type="button">Aceitar opcionais</button>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="privacyTitle" class="privacy-modal" id="privacyModal" role="dialog">
+<div class="privacy-dialog" role="document">
+<button aria-label="Fechar política de privacidade" class="privacy-close" id="closePrivacy" type="button">×</button>
+<h2 id="privacyTitle">Privacidade e cookies</h2>
+<p>A Óticas Ventura utiliza esta página para apresentar ofertas, localização e canais de atendimento. A página não possui formulário de cadastro e não solicita CPF, senha ou dados bancários.</p>
+<h3>Cookies opcionais</h3>
+<p>Com sua autorização, usamos Google Analytics e Meta Pixel para entender, de forma estatística, quantas pessoas visitam o site e quais botões recebem cliques.</p>
+<ul>
+<li>Google Analytics: medição de visitas, origem do acesso, dispositivo e interações.</li>
+<li>Meta Pixel: medição de visitas e ações relacionadas às campanhas da Meta.</li>
+</ul>
+<h3>Links externos</h3>
+<p>Os botões do WhatsApp, Google Maps, Instagram e Facebook levam a serviços externos, que possuem suas próprias regras de privacidade.</p>
+<h3>Como mudar sua escolha</h3>
+<p>Sua preferência fica salva neste aparelho. Use “Gerenciar cookies”, no rodapé, para aceitar ou recusar novamente.</p>
+<p class="privacy-date">Última atualização: julho de 2026.</p>
+</div>
+</div>
+
 <script>
     document.documentElement.classList.add("js");
+
+    const COOKIE_CONSENT_KEY = 'oticas_ventura_cookie_consent_v1';
+    const GOOGLE_ANALYTICS_ID = 'G-SN6C8MM7GD';
+    const META_PIXEL_ID = '2178899632677027';
+    let optionalTrackingLoaded = false;
+
+    function getCookieChoice() {
+      try { return localStorage.getItem(COOKIE_CONSENT_KEY); }
+      catch (error) { return null; }
+    }
+
+    function saveCookieChoice(choice) {
+      try { localStorage.setItem(COOKIE_CONSENT_KEY, choice); }
+      catch (error) { /* O site continua funcionando sem armazenamento local. */ }
+    }
+
+    function loadOptionalTracking() {
+      if (optionalTrackingLoaded) return;
+      optionalTrackingLoaded = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', GOOGLE_ANALYTICS_ID);
+      const googleScript = document.createElement('script');
+      googleScript.async = true;
+      googleScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GOOGLE_ANALYTICS_ID);
+      document.head.appendChild(googleScript);
+
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+        t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+      }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init', META_PIXEL_ID);
+      window.fbq('track', 'PageView');
+    }
+
+    const cookieBanner = document.getElementById('cookieBanner');
+    const privacyModal = document.getElementById('privacyModal');
+
+    function showCookieBanner() {
+      cookieBanner.classList.add('show');
+      document.body.classList.add('cookie-banner-open');
+    }
+
+    function hideCookieBanner() {
+      cookieBanner.classList.remove('show');
+      document.body.classList.remove('cookie-banner-open');
+    }
+
+    function setCookieChoice(choice) {
+      saveCookieChoice(choice);
+      hideCookieBanner();
+      if (choice === 'accepted') loadOptionalTracking();
+    }
+
+    function openPrivacyModal() {
+      privacyModal.classList.add('show');
+      privacyModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('closePrivacy').focus();
+    }
+
+    function closePrivacyModal() {
+      privacyModal.classList.remove('show');
+      privacyModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('acceptCookies').addEventListener('click', () => setCookieChoice('accepted'));
+    document.getElementById('rejectCookies').addEventListener('click', () => setCookieChoice('declined'));
+    document.getElementById('manageCookies').addEventListener('click', showCookieBanner);
+    document.querySelectorAll('.open-privacy').forEach((button) => button.addEventListener('click', openPrivacyModal));
+    document.getElementById('closePrivacy').addEventListener('click', closePrivacyModal);
+    privacyModal.addEventListener('click', (event) => { if (event.target === privacyModal) closePrivacyModal(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && privacyModal.classList.contains('show')) closePrivacyModal(); });
+
+    const savedCookieChoice = getCookieChoice();
+    if (savedCookieChoice === 'accepted') loadOptionalTracking();
+    else if (savedCookieChoice !== 'declined') showCookieBanner();
+
     const whatsappUrl = "https://wa.me/5522981061423?text=" + encodeURIComponent("Olá! Vi as ofertas da Óticas Ventura e quero um orçamento para óculos completo com antirreflexo.");
     const mapUrl = "https://maps.app.goo.gl/5mC7Nurf6aJEGRWv5?g_st=ic";
 
