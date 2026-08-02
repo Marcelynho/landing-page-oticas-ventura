@@ -287,17 +287,66 @@
     @media(max-width:700px){.hero{padding-top:42px}.hero-copy>p{font-size:16px}.social-card{border-radius:22px}.final{padding:62px 0}}
   </style>
 <script type="application/ld+json">{
-  "@context":"https://schema.org",
-  "@type":"Optician",
-  "name":"Óticas Ventura",
-  "url":"https://oticasventura.com.br",
-  "telephone":"+55 22 98106-1423",
-  "priceRange":"R$ 299–R$ 399",
-  "address":{"@type":"PostalAddress","streetAddress":"Rua Marechal Castelo Branco, 1521","addressLocality":"Araruama","addressRegion":"RJ","postalCode":"28970-001","addressCountry":"BR"},
-  "openingHoursSpecification":[
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},
-    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"13:00"}
-  ]
+  "@context": "https://schema.org",
+  "@type": "Optician",
+  "name": "Óticas Ventura",
+  "url": "https://oticasventura.com.br",
+  "telephone": "+55 22 98106-1423",
+  "priceRange": "R$ 299–R$ 399",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Marechal Castelo Branco, 1521",
+    "addressLocality": "Araruama",
+    "addressRegion": "RJ",
+    "postalCode": "28970-001",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "@id": "https://oticasventura.com.br/#otica",
+  "image": "https://oticasventura.com.br/",
+  "sameAs": [
+    "https://www.instagram.com/oticasventura/",
+    "https://www.facebook.com/oticasventura/"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Óculos completos",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "url": "https://oticasventura.com.br/visao-simples.html",
+        "name": "Óculos de visão simples com antirreflexo",
+        "price": "299",
+        "priceCurrency": "BRL"
+      },
+      {
+        "@type": "Offer",
+        "url": "https://oticasventura.com.br/multifocal.html",
+        "name": "Óculos multifocal com antirreflexo",
+        "price": "399",
+        "priceCurrency": "BRL"
+      }
+    ]
+  }
 }</script><style>
 /* ===== ÓTICAS VENTURA 2.0 — FINAL OVERRIDES ===== */
 :root{--v2-gold:#d6b56f;--v2-navy:#061a3a;--v2-blue:#1c66d6;--v2-green:#129447}
@@ -384,7 +433,55 @@ header{box-shadow:0 8px 24px rgba(6,26,58,.06)}
   footer{padding-bottom:24px}
 }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-</style><link href="https://oticasventura.com.br/" rel="canonical"/><meta content="Óticas Ventura | Óculos completos em Araruama" property="og:title"/><meta content="Visão simples por R$ 299 e multifocal por R$ 399, com armação inclusa e antirreflexo." property="og:description"/><meta content="website" property="og:type"/><meta content="https://oticasventura.com.br/" property="og:url"/></head>
+</style><link href="https://oticasventura.com.br/" rel="canonical"/><meta content="Óticas Ventura | Óculos completos em Araruama" property="og:title"/><meta content="Visão simples por R$ 299 e multifocal por R$ 399, com armação inclusa e antirreflexo." property="og:description"/><meta content="website" property="og:type"/><meta content="https://oticasventura.com.br/" property="og:url"/><style>
+.search-navigation{padding:30px 0 20px;border-bottom:1px solid rgba(255,255,255,.14);margin-bottom:22px}
+.search-navigation-title{margin:0 0 13px;color:#fff;font-weight:800;font-size:1rem;letter-spacing:.02em}
+.search-navigation-links{display:flex;flex-wrap:wrap;gap:10px 18px}
+.search-navigation-links a{color:rgba(255,255,255,.86);text-decoration:none;font-size:.94rem;font-weight:650;transition:.2s ease}
+.search-navigation-links a:hover,.search-navigation-links a:focus{color:#fff;text-decoration:underline;text-underline-offset:4px}
+@media(max-width:640px){.search-navigation{padding:25px 0 18px}.search-navigation-links{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}.search-navigation-links a{font-size:.95rem}}
+</style><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://oticasventura.com.br/#website",
+  "url": "https://oticasventura.com.br/",
+  "name": "Óticas Ventura",
+  "publisher": {
+    "@id": "https://oticasventura.com.br/#otica"
+  },
+  "hasPart": [
+    {
+      "@type": "WebPage",
+      "name": "Ofertas",
+      "url": "https://oticasventura.com.br/ofertas.html"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Visão simples",
+      "url": "https://oticasventura.com.br/visao-simples.html"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Multifocal",
+      "url": "https://oticasventura.com.br/multifocal.html"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Armações",
+      "url": "https://oticasventura.com.br/armacoes.html"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Avaliações",
+      "url": "https://oticasventura.com.br/avaliacoes.html"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Localização",
+      "url": "https://oticasventura.com.br/localizacao.html"
+    }
+  ]
+}</script></head>
 <body>
 <div class="top-strip">👓 Óculos com antirreflexo • Visão simples R$ 299 • Multifocal R$ 399 • Em até 10x no cartão</div>
 <header>
@@ -598,7 +695,17 @@ header{box-shadow:0 8px 24px rgba(6,26,58,.06)}
 </section>
 </main>
 <a aria-label="Falar com a Óticas Ventura pelo WhatsApp" class="floating whatsapp-link" href="#">Quero meu orçamento</a>
-<footer>
+<footer><div aria-label="Páginas da Óticas Ventura" class="container search-navigation">
+<p class="search-navigation-title">Encontre o que procura</p>
+<nav class="search-navigation-links">
+<a href="ofertas.html">Ofertas</a>
+<a href="visao-simples.html">Visão simples</a>
+<a href="multifocal.html">Multifocal</a>
+<a href="armacoes.html">Armações</a>
+<a href="avaliacoes.html">Avaliações</a>
+<a href="localizacao.html">Localização</a>
+</nav>
+</div>
 <div class="container footer-inner">
 <div>
 <p>© <span id="year"></span> Óticas Ventura. Todos os direitos reservados.</p>
@@ -621,7 +728,6 @@ header{box-shadow:0 8px 24px rgba(6,26,58,.06)}
 </div>
 </div>
 <span class="v2-badge">Site 2.0</span></footer>
-
 <div aria-describedby="cookieText" aria-label="Preferências de cookies" class="cookie-banner" id="cookieBanner" role="dialog">
 <div class="cookie-banner-inner">
 <div class="cookie-copy">
@@ -652,7 +758,6 @@ header{box-shadow:0 8px 24px rgba(6,26,58,.06)}
 <p class="privacy-date">Última atualização: julho de 2026.</p>
 </div>
 </div>
-
 <script>
     document.documentElement.classList.add("js");
 
