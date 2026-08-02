@@ -573,7 +573,60 @@ header{box-shadow:0 8px 24px rgba(6,26,58,.06)}
       "url": "https://oticasventura.com.br/localizacao.html"
     }
   ]
-}</script></head>
+}</script>
+<style id="correcao-titulo-botao-20260802">
+/* Correção: título completo ao usar o menu e botão flutuante sempre dentro da tela */
+html{scroll-padding-top:150px}
+#inicio{scroll-margin-top:150px}
+.hero{overflow:clip}
+.hero-grid,.hero-copy,.hero-photo,.nav,.brand,nav{min-width:0}
+.hero-copy h1{display:block;max-width:100%;overflow:visible;overflow-wrap:normal;word-break:normal}
+.floating{
+  left:auto!important;
+  right:max(16px,env(safe-area-inset-right))!important;
+  bottom:max(16px,env(safe-area-inset-bottom))!important;
+  width:auto!important;
+  max-width:calc(100vw - 32px)!important;
+  min-height:52px;
+  padding:0 20px!important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+@media (max-width:1120px){
+  nav{display:none!important}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.86fr);gap:28px}
+  .hero-copy h1{font-size:clamp(40px,5vw,56px)}
+  .hero-photo{min-height:500px}
+}
+@media (max-width:900px){
+  html{scroll-padding-top:125px}
+  #inicio{scroll-margin-top:125px}
+  .hero-grid{grid-template-columns:1fr!important}
+  .hero-copy h1{font-size:clamp(39px,8.6vw,54px)}
+  .floating{font-size:14px!important;min-height:50px;padding:0 17px!important}
+}
+@media (max-width:640px){
+  html{scroll-padding-top:118px}
+  #inicio{scroll-margin-top:118px}
+  .hero-copy h1{font-size:40px!important;line-height:1.04!important}
+  .floating{
+    left:14px!important;
+    right:14px!important;
+    bottom:max(12px,env(safe-area-inset-bottom))!important;
+    width:auto!important;
+    max-width:none!important;
+    min-height:56px;
+    border-radius:18px!important;
+    font-size:16px!important;
+  }
+}
+</style>
+</head>
 <body>
 <div class="top-strip">👓 Óculos com antirreflexo • Visão simples R$ 299 • Multifocal R$ 399 • Em até 10x no cartão</div>
 <header>
