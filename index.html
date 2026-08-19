@@ -908,6 +908,93 @@ html{scroll-padding-top:150px}
   }
 </style>
 
+
+<style id="ventura-polimento-visual-20260819">
+  body{font-family:"Montserrat",Arial,sans-serif}
+  h1,h2,h3,.brand-text strong,.photo-caption strong,.footer-brand strong,.privacy-dialog h2{font-family:"Montserrat",Arial,sans-serif}
+  h1,h2{font-weight:800;letter-spacing:-.045em}
+  .brand-text strong{font-weight:800;letter-spacing:-.035em}
+
+  header .nav{min-height:72px;gap:22px}
+  header .brand{gap:12px}
+  header .brand img{width:54px;height:54px;border-radius:15px;box-shadow:0 9px 22px rgba(8,26,56,.14)}
+  header .brand-text strong{font-size:25px}
+  header nav{gap:28px;font-size:15px;font-weight:750}
+
+  section{padding:80px 0}
+  .section-title{margin-bottom:34px}
+  .section-title p{font-size:16px}
+  .cards{gap:18px}
+  .card{padding:26px;border-radius:22px}
+
+  #simulador-lentes{padding:62px 0 66px}
+  #simulador-lentes .lens-sim-shell{width:min(1160px,calc(100% - 32px));grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:32px}
+  #simulador-lentes .lens-sim-copy{max-width:430px}
+  #simulador-lentes .lens-sim-copy h2{margin-top:12px;font-size:clamp(32px,3.2vw,46px);line-height:1.04}
+  #simulador-lentes .lens-sim-copy p{margin-top:14px;font-size:14px;line-height:1.62;max-width:390px}
+  #simulador-lentes .lens-sim-points{margin-top:19px;gap:9px}
+  #simulador-lentes .lens-sim-point{font-size:12.5px}
+  #simulador-lentes .lens-compare-top{margin-bottom:10px}
+  #simulador-lentes .lens-compare{height:clamp(380px,38vw,510px);border-radius:24px;box-shadow:0 18px 44px rgba(8,31,67,.13);--handle-half:26px}
+  #simulador-lentes .lens-label{top:14px;padding:8px 11px;font-size:9px;letter-spacing:.07em;background:rgba(7,26,56,.78)}
+  #simulador-lentes .lens-label-before{left:14px}
+  #simulador-lentes .lens-label-after{right:14px}
+  #simulador-lentes .lens-handle{width:52px;height:52px;gap:9px;box-shadow:0 8px 22px rgba(0,0,0,.22)}
+  #simulador-lentes .lens-handle span{font-size:21px}
+  #simulador-lentes .lens-compare-bottom{margin-top:10px;font-size:10.5px;line-height:1.45;align-items:center}
+  #simulador-lentes .lens-compare-hint{font-weight:800;white-space:nowrap}
+  #simulador-lentes .lens-sim-cta-bottom{display:flex;width:max-content;min-height:48px;margin:17px auto 0;padding:0 24px;border-radius:999px;background:#16844a;color:#fff;font-size:13px;font-weight:800;box-shadow:0 12px 26px rgba(22,132,74,.23);transition:transform .2s ease,box-shadow .2s ease}
+  #simulador-lentes .lens-sim-cta-bottom:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(22,132,74,.28)}
+
+  .floating{padding:11px 16px;font-size:13px;box-shadow:0 10px 24px rgba(0,0,0,.20)}
+  body.simulator-in-view .floating{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px)}
+
+  .site-footer-pro{padding-top:30px}
+  .footer-pro-grid{gap:24px}
+  .footer-brand img{width:44px;height:44px;border-radius:12px}
+  .footer-brand strong{font-size:18px}
+  .footer-brand-block>p{margin-top:9px;font-size:11.5px;line-height:1.45}
+  .footer-column h3{margin-bottom:10px;font-family:"Montserrat",Arial,sans-serif;font-size:11px}
+  .footer-contact-link{margin-bottom:8px}
+  .footer-map-mini{height:125px}
+  .footer-pro-bottom{margin-top:22px;padding:15px 0 17px}
+
+  @media(max-width:980px){
+    header .nav{min-height:66px}
+    #simulador-lentes .lens-sim-shell{grid-template-columns:1fr;gap:22px}
+    #simulador-lentes .lens-sim-copy{max-width:760px;text-align:center;margin-inline:auto}
+    #simulador-lentes .lens-sim-copy p{max-width:620px;margin-left:auto;margin-right:auto}
+    #simulador-lentes .lens-sim-points{max-width:520px;margin-left:auto;margin-right:auto;text-align:left}
+    #simulador-lentes .lens-compare{height:min(70vw,520px)}
+  }
+  @media(max-width:700px){
+    header .nav{min-height:62px}
+    header .brand img{width:46px;height:46px;border-radius:13px}
+    header .brand-text strong{font-size:20px}
+    section{padding:60px 0}
+    #simulador-lentes{padding:50px 0 54px}
+    #simulador-lentes .lens-sim-shell{width:calc(100% - 24px);gap:20px}
+    #simulador-lentes .lens-sim-copy h2{font-size:32px}
+    #simulador-lentes .lens-sim-copy p{font-size:13.5px}
+    #simulador-lentes .lens-sim-points{margin-top:16px;gap:8px}
+    #simulador-lentes .lens-compare{height:112vw;min-height:360px;max-height:490px;border-radius:20px;--handle-half:23px}
+    #simulador-lentes .lens-compare-top{font-size:10px}
+    #simulador-lentes .lens-compare-top strong{font-size:11px}
+    #simulador-lentes .lens-label{top:11px;padding:7px 9px;font-size:8px}
+    #simulador-lentes .lens-label-before{left:10px}
+    #simulador-lentes .lens-label-after{right:10px}
+    #simulador-lentes .lens-handle{width:46px;height:46px}
+    #simulador-lentes .lens-handle span{font-size:19px}
+    #simulador-lentes .lens-compare-bottom{font-size:9.5px}
+    #simulador-lentes .lens-sim-cta-bottom{width:100%;min-height:50px;margin-top:14px;font-size:13px}
+    .floating{right:10px;bottom:10px;min-height:48px;padding:0 15px;font-size:12.5px}
+    .site-footer-pro{padding-top:24px}
+    .footer-pro-grid{gap:20px}
+    .footer-map-mini{height:120px}
+    .footer-pro-bottom{margin-top:18px}
+  }
+</style>
+
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
@@ -1017,14 +1104,14 @@ html{scroll-padding-top:150px}
   <div class="lens-sim-shell">
     <div class="lens-sim-copy reveal">
       <span class="lens-sim-kicker">Simulador de lentes</span>
-      <h2 id="lens-sim-title">Veja a diferença antes de escolher.</h2>
-      <p>Arraste a barra e veja uma demonstração visual do efeito do antirreflexo. A foto permanece fixa; arraste a barra até as extremidades para comparar.</p>
+      <h2 id="lens-sim-title">Veja a diferença na prática.</h2>
+      <p>Arraste a barra e compare visualmente a lente sem e com antirreflexo.</p>
       <div class="lens-sim-points" aria-label="Benefícios demonstrados">
         <div class="lens-sim-point"><i></i><span>Menos reflexos aparentes na lente</span></div>
         <div class="lens-sim-point"><i></i><span>Mais nitidez e conforto visual</span></div>
         <div class="lens-sim-point"><i></i><span>Visual mais limpo nos óculos</span></div>
       </div>
-      <a class="btn btn-primary whatsapp-link lens-sim-cta" href="#" aria-label="Pedir orientação sobre lentes pelo WhatsApp">Quero saber qual lente escolher</a>
+      
     </div>
 
     <div class="lens-compare-wrap reveal">
@@ -1046,6 +1133,7 @@ html{scroll-padding-top:150px}
         <span><strong>Demonstração ilustrativa:</strong> o resultado real pode variar conforme grau, material e tratamento da lente.</span>
         <span class="lens-compare-hint">← toque e arraste →</span>
       </div>
+      <a class="whatsapp-link lens-sim-cta lens-sim-cta-bottom" href="#" aria-label="Pedir orçamento de lentes pelo WhatsApp">Quero meu orçamento</a>
     </div>
   </div>
 </section>
@@ -1569,6 +1657,18 @@ html{scroll-padding-top:150px}
 
     apply(50);
   });
+})();
+</script>
+
+
+<script id="ventura-simulator-floating-guard">
+(function(){
+  var simulator=document.getElementById('simulador-lentes');
+  if(!simulator || !('IntersectionObserver' in window)) return;
+  var observer=new IntersectionObserver(function(entries){
+    document.body.classList.toggle('simulator-in-view',entries[0].isIntersecting);
+  },{threshold:0.12});
+  observer.observe(simulator);
 })();
 </script>
 
