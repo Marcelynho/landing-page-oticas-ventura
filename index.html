@@ -909,6 +909,83 @@ html{scroll-padding-top:150px}
     #simulador-lentes .lens-compare-hint{text-align:center;margin-top:7px}
   }
 </style>
+
+<style id="ventura-simulador-solucao-definitiva-20260819">
+  /* Solução definitiva: UMA única foto. O arraste move apenas a máscara visual. */
+  html,body{max-width:100%;overflow-x:hidden!important}
+  #simulador-lentes{overflow:hidden!important}
+  #simulador-lentes .lens-compare{
+    --split:50%;
+    position:relative!important;
+    width:100%!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+    touch-action:none!important;
+    overscroll-behavior:none!important;
+    user-select:none!important;
+    -webkit-user-select:none!important;
+    contain:layout paint!important;
+  }
+  #simulador-lentes .lens-base-image{
+    position:absolute!important;
+    inset:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:none!important;
+    display:block!important;
+    object-fit:cover!important;
+    object-position:50% 40%!important;
+    transform:none!important;
+    margin:0!important;
+    padding:0!important;
+    pointer-events:none!important;
+    -webkit-user-drag:none!important;
+  }
+  #simulador-lentes .lens-before-effect{
+    position:absolute!important;
+    z-index:2!important;
+    left:0!important;
+    top:0!important;
+    bottom:0!important;
+    width:var(--split)!important;
+    overflow:hidden!important;
+    pointer-events:none!important;
+    backdrop-filter:saturate(.72) contrast(.82) brightness(1.10) blur(.35px)!important;
+    -webkit-backdrop-filter:saturate(.72) contrast(.82) brightness(1.10) blur(.35px)!important;
+    background:
+      radial-gradient(circle at 30% 30%,rgba(255,255,255,.92) 0 2%,rgba(170,213,255,.66) 3%,rgba(80,150,230,.27) 8%,transparent 19%),
+      radial-gradient(circle at 73% 21%,rgba(255,255,255,.86) 0 1.3%,rgba(178,219,255,.60) 2.5%,rgba(96,164,238,.24) 7%,transparent 18%),
+      linear-gradient(115deg,rgba(133,190,255,.22),rgba(255,255,255,.10) 38%,rgba(105,168,238,.18))!important;
+  }
+  #simulador-lentes .lens-divider,
+  #simulador-lentes .lens-handle{left:var(--split)!important}
+  #simulador-lentes .lens-label{z-index:5!important}
+  #simulador-lentes .lens-divider{z-index:6!important}
+  #simulador-lentes .lens-handle{z-index:7!important}
+  #simulador-lentes .lens-range{
+    position:absolute!important;
+    left:0!important;
+    top:0!important;
+    width:1px!important;
+    height:1px!important;
+    opacity:0!important;
+    z-index:-1!important;
+    margin:0!important;
+    padding:0!important;
+    pointer-events:none!important;
+    appearance:none!important;
+    -webkit-appearance:none!important;
+    background:transparent!important;
+  }
+  #simulador-lentes .lens-range::-webkit-slider-thumb{
+    -webkit-appearance:none!important;
+    appearance:none!important;
+    width:1px!important;
+    height:1px!important;
+    background:transparent!important;
+    border:0!important;
+  }
+</style>
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
@@ -1029,8 +1106,8 @@ html{scroll-padding-top:150px}
     <div class="lens-compare-wrap reveal">
       <div class="lens-compare-top"><strong>Comparação visual</strong><span>Arraste para os lados</span></div>
       <div class="lens-compare" data-lens-compare style="--split:50%">
-        <div class="lens-compare-layer lens-before"><img data-lens-image alt="Demonstração visual sem tratamento antirreflexo"/></div>
-        <div class="lens-compare-layer lens-after"><img data-lens-image alt="Demonstração visual com tratamento antirreflexo"/></div>
+        <img class="lens-base-image" data-lens-image alt="Demonstração visual de lente com antirreflexo" draggable="false"/>
+        <div class="lens-before-effect" aria-hidden="true"></div>
         <span class="lens-label lens-label-before">Sem antirreflexo</span>
         <span class="lens-label lens-label-after">Com antirreflexo</span>
         <div class="lens-divider" aria-hidden="true"></div><div class="lens-handle" aria-hidden="true"></div>
