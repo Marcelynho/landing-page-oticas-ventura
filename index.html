@@ -798,6 +798,55 @@ html{scroll-padding-top:150px}
   @media(max-width:700px){.lens-sim-section{padding:54px 0 60px}.lens-sim-shell{gap:24px}.lens-sim-copy h2{font-size:36px;line-height:1.04}.lens-sim-copy p{font-size:14px;line-height:1.62}.lens-sim-points{margin-top:18px}.lens-sim-point{font-size:12px}.lens-compare-top{margin-bottom:10px}.lens-compare{height:118vw;max-height:500px;min-height:390px;border-radius:22px}.lens-label{top:13px;padding:8px 10px;font-size:9px}.lens-label-before{left:12px}.lens-label-after{right:12px}.lens-handle{width:48px;height:48px}.lens-compare-bottom{display:block;margin-top:10px}.lens-compare-hint{display:block;margin-top:5px}}
 </style>
 
+
+<style id="ventura-ajustes-20260819">
+  /* Remoção da faixa azul deixa a passagem Hero > Benefícios mais compacta. */
+  #beneficios{padding-top:72px;padding-bottom:78px}
+
+  /* Simulador: laterais esquerda/direita alinhadas ao mesmo container do site. */
+  #simulador-lentes .lens-sim-shell{
+    grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+    gap:40px;
+    align-items:center;
+  }
+  #simulador-lentes .lens-sim-copy{
+    width:100%;
+    max-width:490px;
+    justify-self:start;
+  }
+  #simulador-lentes .lens-compare-wrap{
+    width:100%;
+    max-width:700px;
+    min-width:0;
+    justify-self:end;
+    margin:0;
+  }
+  #simulador-lentes .lens-compare{
+    width:100%;
+    height:clamp(390px,40vw,520px);
+  }
+  #simulador-lentes .lens-compare-top,
+  #simulador-lentes .lens-compare-bottom{
+    width:100%;
+  }
+
+  @media(max-width:980px){
+    #beneficios{padding-top:60px;padding-bottom:66px}
+    #simulador-lentes .lens-sim-shell{grid-template-columns:1fr;gap:28px}
+    #simulador-lentes .lens-sim-copy{max-width:760px;justify-self:center}
+    #simulador-lentes .lens-compare-wrap{max-width:820px;justify-self:center}
+    #simulador-lentes .lens-compare{height:min(66vw,530px)}
+  }
+
+  @media(max-width:700px){
+    #beneficios{padding-top:48px;padding-bottom:54px}
+    #simulador-lentes .lens-sim-shell{gap:22px}
+    #simulador-lentes .lens-compare-wrap{max-width:none}
+    #simulador-lentes .lens-compare{width:100%;height:118vw;max-height:500px;min-height:390px}
+    #simulador-lentes .lens-compare-bottom{text-align:left}
+    #simulador-lentes .lens-compare-hint{text-align:center;margin-top:7px}
+  }
+</style>
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
@@ -873,14 +922,6 @@ html{scroll-padding-top:150px}
 <span>Armações, conforto e atendimento próximo em um só lugar.</span>
 </div>
 </div>
-</div>
-</section>
-<section class="trust">
-<div class="container trust-grid">
-<div class="trust-item"><strong>Óculos completos</strong><span>Com armação inclusa e lentes com antirreflexo.</span></div>
-<div class="trust-item"><strong>Pagamento facilitado</strong><span>Condições em até 10x no cartão.</span></div>
-<div class="trust-item"><strong>Loja física</strong><span>Atendimento presencial em Fazendinha, Araruama.</span></div>
-<div class="trust-item"><strong>Avaliação máxima</strong><span>Clientes recomendam a Óticas Ventura no Google.</span></div>
 </div>
 </section>
 <section id="beneficios">
