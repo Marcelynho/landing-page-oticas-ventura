@@ -800,55 +800,106 @@ html{scroll-padding-top:150px}
 
 
 <style id="ventura-ajustes-20260819">
-  /* Remoção da faixa azul deixa a passagem Hero > Benefícios mais compacta. */
+  /* Ajustes finais — faixa azul removida e simulador travado no lugar. */
   #beneficios{padding-top:72px;padding-bottom:78px}
 
-  /* Simulador: alinhamento estrutural das laterais. */
+  #simulador-lentes{overflow-x:clip}
   #simulador-lentes .container.lens-sim-shell{
-    width:min(1180px,calc(100% - 30px));
-    margin-left:auto;
-    margin-right:auto;
-    padding-left:0;
-    padding-right:0;
+    width:min(1180px,calc(100% - 32px));
+    margin:0 auto;
+    padding:0;
     grid-template-columns:minmax(0,1fr) minmax(0,1fr);
     gap:36px;
     align-items:center;
   }
-  #simulador-lentes .lens-sim-copy{
-    width:100%;
-    max-width:none;
-    min-width:0;
-    justify-self:stretch;
-  }
+  #simulador-lentes .lens-sim-copy,
   #simulador-lentes .lens-compare-wrap{
     width:100%;
-    max-width:none;
     min-width:0;
-    justify-self:stretch;
+    max-width:none;
     margin:0;
   }
+  #simulador-lentes .lens-compare-wrap{justify-self:stretch}
+  #simulador-lentes .lens-compare-top,
+  #simulador-lentes .lens-compare-bottom{width:100%;margin-left:0;margin-right:0}
+
+  /* O quadro nunca muda de tamanho/posição durante o arraste. */
   #simulador-lentes .lens-compare{
+    --split:50%;
+    position:relative;
     display:block;
     width:100%;
     max-width:none;
     margin:0;
     height:clamp(390px,40vw,520px);
+    overflow:hidden;
+    contain:layout paint;
+    touch-action:none;
+    overscroll-behavior:contain;
   }
-  #simulador-lentes .lens-compare-top,
-  #simulador-lentes .lens-compare-bottom{
+
+  /* As duas versões usam exatamente a MESMA geometria da foto. */
+  #simulador-lentes .lens-compare-layer{
+    position:absolute;
+    inset:0;
     width:100%;
-    margin-left:0;
-    margin-right:0;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+  }
+  #simulador-lentes .lens-compare-layer img{
+    position:absolute;
+    inset:0;
+    display:block;
+    width:100%;
+    height:100%;
+    max-width:none;
+    object-fit:cover;
+    object-position:50% 40%;
+    transform:none!important;
+    transform-origin:center center!important;
+  }
+
+  /* Foto limpa fica fixa no fundo; só a máscara da versão "sem" se move. */
+  #simulador-lentes .lens-after{
+    clip-path:none!important;
+    z-index:1;
+  }
+  #simulador-lentes .lens-before{
+    z-index:2;
+    clip-path:inset(0 calc(100% - var(--split)) 0 0);
+  }
+  #simulador-lentes .lens-before img{
+    transform:none!important;
+    filter:saturate(.72) contrast(.82) brightness(1.10) blur(.35px);
+  }
+  #simulador-lentes .lens-after img{
+    transform:none!important;
+    filter:saturate(1.03) contrast(1.055) brightness(.99);
+  }
+
+  /* Divisor e alça se movem, mas a foto permanece imóvel. */
+  #simulador-lentes .lens-divider,
+  #simulador-lentes .lens-handle{left:var(--split)}
+
+  /* Desativa o comportamento nativo do range para impedir arrasto/scroll lateral. */
+  #simulador-lentes .lens-range{
+    position:absolute;
+    width:1px;
+    height:1px;
+    opacity:0;
+    pointer-events:none;
+    margin:0;
+    padding:0;
   }
 
   @media(max-width:980px){
     #beneficios{padding-top:60px;padding-bottom:66px}
     #simulador-lentes .container.lens-sim-shell{grid-template-columns:1fr;gap:28px;width:min(100% - 30px,1180px)}
     #simulador-lentes .lens-sim-copy{max-width:820px;justify-self:center}
-    #simulador-lentes .lens-compare-wrap{width:100%;max-width:820px;justify-self:center}
+    #simulador-lentes .lens-compare-wrap{max-width:820px;justify-self:center}
     #simulador-lentes .lens-compare{height:min(66vw,530px)}
   }
-
   @media(max-width:700px){
     #beneficios{padding-top:48px;padding-bottom:54px}
     #simulador-lentes .container.lens-sim-shell{gap:22px;width:min(100% - 28px,1180px)}
@@ -1458,14 +1509,71 @@ html{scroll-padding-top:150px}
 (function(){
   var source = document.querySelector('.showcase-img img');
   if(source && source.getAttribute('src')){
-    document.querySelectorAll('[data-lens-image]').forEach(function(img){ img.src = source.src; });
+    document.querySelectorAll('[data-lens-image]').forEach(function(img){
+      img.src = source.src;
+      img.draggable = false;
+    });
   }
+
   document.querySelectorAll('[data-lens-compare]').forEach(function(compare){
     var range = compare.querySelector('.lens-range');
     if(!range) return;
-    function update(){ compare.style.setProperty('--split', range.value + '%'); }
-    range.addEventListener('input', update, {passive:true});
-    update();
+
+    var value = Number(range.value) || 50;
+    function setValue(next){
+      value = Math.max(8, Math.min(92, Number(next) || 50));
+      range.value = String(value);
+      compare.style.setProperty('--split', value + '%');
+    }
+    function setFromClientX(clientX){
+      var rect = compare.getBoundingClientRect();
+      if(!rect.width) return;
+      setValue(((clientX - rect.left) / rect.width) * 100);
+    }
+
+    var dragging = false;
+    compare.addEventListener('pointerdown', function(e){
+      if(e.button !== undefined && e.button !== 0) return;
+      dragging = true;
+      compare.setPointerCapture && compare.setPointerCapture(e.pointerId);
+      setFromClientX(e.clientX);
+      e.preventDefault();
+    });
+    compare.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      setFromClientX(e.clientX);
+      e.preventDefault();
+    });
+    function stop(e){
+      if(!dragging) return;
+      dragging = false;
+      if(compare.releasePointerCapture && e && e.pointerId !== undefined){
+        try{ compare.releasePointerCapture(e.pointerId); }catch(_e){}
+      }
+    }
+    compare.addEventListener('pointerup', stop);
+    compare.addEventListener('pointercancel', stop);
+    compare.addEventListener('lostpointercapture', function(){ dragging = false; });
+
+    /* Teclado continua acessível pelo comparador. */
+    compare.tabIndex = 0;
+    compare.setAttribute('role','slider');
+    compare.setAttribute('aria-valuemin','8');
+    compare.setAttribute('aria-valuemax','92');
+    compare.addEventListener('keydown', function(e){
+      var next = value;
+      if(e.key === 'ArrowLeft') next -= 2;
+      else if(e.key === 'ArrowRight') next += 2;
+      else if(e.key === 'Home') next = 8;
+      else if(e.key === 'End') next = 92;
+      else return;
+      e.preventDefault();
+      setValue(next);
+      compare.setAttribute('aria-valuenow', String(Math.round(value)));
+    });
+
+    setValue(value);
+    compare.setAttribute('aria-valuenow', String(Math.round(value)));
   });
 })();
 </script>
