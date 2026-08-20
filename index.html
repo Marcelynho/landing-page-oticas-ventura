@@ -959,6 +959,113 @@ html{scroll-padding-top:150px}
 }
 </style>
 
+
+<style id="ventura-simulador-receita-v1">
+/* Simulador de receita: bloco compacto + modal. Não altera a largura das seções existentes. */
+.rx-simulator-section{
+  padding:46px 0 52px !important;
+  background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);
+}
+.rx-simulator-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:28px;
+  padding:30px 34px;
+  border:1px solid #dbe6f2;
+  border-radius:26px;
+  background:linear-gradient(135deg,#ffffff 0%,#f2f7ff 100%);
+  box-shadow:0 16px 42px rgba(8,35,77,.08);
+  overflow:hidden;
+}
+.rx-simulator-card::after{
+  content:"";
+  position:absolute;
+  right:-70px;
+  top:-85px;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(29,105,216,.11),transparent 68%);
+  pointer-events:none;
+}
+.rx-simulator-copy{position:relative;z-index:1;max-width:760px}
+.rx-simulator-label{display:inline-flex;align-items:center;gap:8px;color:#1b5fb5;font-size:11px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+.rx-simulator-label::before{content:"";width:7px;height:7px;border-radius:50%;background:#d8b46c}
+.rx-simulator-card h2{margin-top:8px;font-size:clamp(28px,3.2vw,40px);line-height:1.05}
+.rx-simulator-card p{margin-top:9px;color:#66758d;font-size:15px;line-height:1.55;max-width:720px}
+.rx-simulator-prices{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.rx-price-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 11px;border:1px solid #dbe6f2;border-radius:999px;background:#fff;color:#0b2b58;font-size:12px;font-weight:800}
+.rx-price-pill strong{color:#1b5fb5;font-size:14px}
+.rx-open-btn{position:relative;z-index:1;min-width:214px;min-height:52px;border:0;border-radius:14px;background:linear-gradient(135deg,#0b2b58,#164e9d);color:#fff;font:800 14px "DM Sans",sans-serif;padding:0 20px;cursor:pointer;box-shadow:0 12px 26px rgba(11,43,88,.18);transition:.2s ease}
+.rx-open-btn:hover{transform:translateY(-2px)}
+
+.rx-modal-overlay{position:fixed;inset:0;z-index:1350;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(3,14,32,.68);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease,visibility .24s ease}
+.rx-modal-overlay.is-open{opacity:1;visibility:visible;pointer-events:auto}
+.rx-modal{position:relative;width:min(780px,100%);max-height:min(88vh,820px);overflow:auto;padding:28px;border:1px solid rgba(255,255,255,.10);border-radius:28px;background:#fff;box-shadow:0 34px 90px rgba(2,13,30,.38);transform:translateY(14px) scale(.98);transition:transform .26s ease}
+.rx-modal-overlay.is-open .rx-modal{transform:translateY(0) scale(1)}
+.rx-modal-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border:0;border-radius:50%;background:#edf3fb;color:#0b2b58;font-size:24px;line-height:1;cursor:pointer}
+.rx-modal-head{padding-right:48px}
+.rx-modal-head .rx-simulator-label{margin-bottom:8px}
+.rx-modal-head h3{font-family:"Playfair Display",serif;color:#071a38;font-size:34px;line-height:1.04;letter-spacing:-.03em}
+.rx-modal-head p{margin-top:9px;color:#66758d;font-size:14px;line-height:1.5;max-width:650px}
+.rx-eye-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.rx-eye-card{padding:18px;border:1px solid #dde7f2;border-radius:20px;background:#f9fbfe}
+.rx-eye-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.rx-eye-title strong{color:#071a38;font-size:16px}
+.rx-eye-title span{color:#75849a;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+.rx-fields{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.rx-field{display:grid;gap:5px}
+.rx-field label{color:#4f6078;font-size:11px;font-weight:800}
+.rx-field input{width:100%;height:46px;border:1px solid #cfdbe9;border-radius:12px;background:#fff;color:#17253d;font:700 15px "DM Sans",sans-serif;padding:0 12px;outline:none;transition:border .2s,box-shadow .2s}
+.rx-field input:focus{border-color:#2a6ec5;box-shadow:0 0 0 3px rgba(42,110,197,.10)}
+.rx-field input::placeholder{color:#a5b0bf;font-weight:500}
+.rx-helper{margin-top:14px;padding:12px 14px;border-radius:14px;background:#eef5ff;color:#52647c;font-size:12px;line-height:1.48}
+.rx-helper strong{color:#0b2b58}
+.rx-modal-actions{display:flex;gap:10px;align-items:center;margin-top:18px}
+.rx-calc-btn{min-height:50px;border:0;border-radius:13px;background:#0b2b58;color:#fff;font:800 14px "DM Sans",sans-serif;padding:0 22px;cursor:pointer}
+.rx-clear-btn{min-height:50px;border:1px solid #d7e1ec;border-radius:13px;background:#fff;color:#0b2b58;font:800 14px "DM Sans",sans-serif;padding:0 18px;cursor:pointer}
+.rx-form-error{display:none;margin-top:12px;padding:10px 12px;border-radius:12px;background:#fff3f3;color:#9c3030;font-size:12px;font-weight:700}
+.rx-form-error.show{display:block}
+.rx-result{display:none;margin-top:20px;padding:22px;border-radius:20px;background:linear-gradient(135deg,#071a38,#0e3977);color:#fff;box-shadow:0 18px 42px rgba(7,26,56,.18)}
+.rx-result.show{display:block}
+.rx-result-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.rx-result-kicker{color:#d9c18b;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.rx-result h4{margin-top:4px;color:#fff;font-family:"Playfair Display",serif;font-size:34px;line-height:1}
+.rx-result p{margin-top:9px;color:#d9e5f4;font-size:13px;line-height:1.5;max-width:520px}
+.rx-result-price{flex:0 0 auto;text-align:right}
+.rx-result-price span{display:block;color:#b9c9dc;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+.rx-result-price strong{display:block;margin-top:3px;font-family:"Playfair Display",serif;font-size:38px;line-height:1;color:#fff}
+.rx-result-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.rx-result-whatsapp{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:12px;background:#18a957;color:#fff;font-weight:900;font-size:13px}
+.rx-result-note{margin-top:12px!important;color:#aebfd3!important;font-size:10.5px!important}
+
+@media(max-width:700px){
+  .rx-simulator-section{padding:34px 0 40px !important}
+  .rx-simulator-card{grid-template-columns:1fr;gap:18px;padding:24px 20px;border-radius:22px}
+  .rx-simulator-card h2{font-size:31px}
+  .rx-simulator-card p{font-size:14px}
+  .rx-open-btn{width:100%;min-width:0}
+  .rx-modal-overlay{padding:10px;align-items:flex-end}
+  .rx-modal{width:100%;max-height:92vh;padding:22px 16px 18px;border-radius:24px 24px 16px 16px}
+  .rx-modal-head h3{font-size:29px}
+  .rx-eye-grid{grid-template-columns:1fr;gap:10px;margin-top:18px}
+  .rx-eye-card{padding:15px}
+  .rx-fields{gap:9px}
+  .rx-field input{height:44px;font-size:14px}
+  .rx-modal-actions{display:grid;grid-template-columns:1fr 1fr}
+  .rx-calc-btn,.rx-clear-btn{width:100%;padding:0 12px}
+  .rx-result{padding:18px 16px}
+  .rx-result-top{display:block}
+  .rx-result h4{font-size:30px}
+  .rx-result-price{text-align:left;margin-top:14px}
+  .rx-result-price strong{font-size:34px}
+  .rx-result-whatsapp{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.rx-open-btn,.rx-modal,.rx-modal-overlay{transition:none}}
+</style>
+
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
@@ -1061,6 +1168,23 @@ html{scroll-padding-top:150px}
 <a aria-label="Falar com a Óticas Ventura pelo WhatsApp" class="btn btn-light whatsapp-link" href="#">Quero conhecer as opções</a>
 </div>
 </div>
+</section>
+
+<section class="rx-simulator-section" id="simulador-receita" aria-labelledby="rx-simulator-title">
+  <div class="container">
+    <div class="rx-simulator-card reveal">
+      <div class="rx-simulator-copy">
+        <span class="rx-simulator-label">Simulador de receita</span>
+        <h2 id="rx-simulator-title">Sua receita pode indicar qual opção?</h2>
+        <p>Digite os dados principais da receita e veja qual das duas opções anunciadas vale a pena conferir com nossa equipe.</p>
+        <div class="rx-simulator-prices" aria-label="Opções do simulador">
+          <span class="rx-price-pill">Visão simples <strong>R$ 299</strong></span>
+          <span class="rx-price-pill">Multifocal <strong>R$ 399</strong></span>
+        </div>
+      </div>
+      <button class="rx-open-btn" id="rxOpenSimulator" type="button">Simular minha receita</button>
+    </div>
+  </div>
 </section>
 <section class="offers-premium-section" aria-labelledby="ofertas-especiais-titulo">
 <div class="container">
@@ -1169,6 +1293,61 @@ html{scroll-padding-top:150px}
     </div>
   </div>
 </footer>
+
+<div class="rx-modal-overlay" id="rxSimulatorModal" aria-hidden="true">
+  <div class="rx-modal" role="dialog" aria-modal="true" aria-labelledby="rxModalTitle">
+    <button class="rx-modal-close" id="rxCloseSimulator" type="button" aria-label="Fechar simulador">×</button>
+    <div class="rx-modal-head">
+      <span class="rx-simulator-label">Simulador orientativo</span>
+      <h3 id="rxModalTitle">Digite os dados da sua receita</h3>
+      <p>Preencha o que você encontrar na receita. Para esta simulação, o campo <strong>Adição / ADD</strong> é o principal dado usado para diferenciar visão simples de multifocal.</p>
+    </div>
+
+    <div class="rx-eye-grid">
+      <div class="rx-eye-card">
+        <div class="rx-eye-title"><strong>Olho Direito</strong><span>OD</span></div>
+        <div class="rx-fields">
+          <div class="rx-field"><label for="rxOdEsf">Esférico</label><input id="rxOdEsf" inputmode="decimal" autocomplete="off" placeholder="Ex.: -2,00" type="text"></div>
+          <div class="rx-field"><label for="rxOdCil">Cilíndrico</label><input id="rxOdCil" inputmode="decimal" autocomplete="off" placeholder="Ex.: -0,75" type="text"></div>
+          <div class="rx-field"><label for="rxOdEixo">Eixo</label><input id="rxOdEixo" inputmode="numeric" autocomplete="off" placeholder="Ex.: 90" type="text"></div>
+          <div class="rx-field"><label for="rxOdAdd">Adição / ADD</label><input id="rxOdAdd" inputmode="decimal" autocomplete="off" placeholder="Ex.: +2,00" type="text"></div>
+        </div>
+      </div>
+      <div class="rx-eye-card">
+        <div class="rx-eye-title"><strong>Olho Esquerdo</strong><span>OE</span></div>
+        <div class="rx-fields">
+          <div class="rx-field"><label for="rxOeEsf">Esférico</label><input id="rxOeEsf" inputmode="decimal" autocomplete="off" placeholder="Ex.: -1,50" type="text"></div>
+          <div class="rx-field"><label for="rxOeCil">Cilíndrico</label><input id="rxOeCil" inputmode="decimal" autocomplete="off" placeholder="Ex.: -0,50" type="text"></div>
+          <div class="rx-field"><label for="rxOeEixo">Eixo</label><input id="rxOeEixo" inputmode="numeric" autocomplete="off" placeholder="Ex.: 85" type="text"></div>
+          <div class="rx-field"><label for="rxOeAdd">Adição / ADD</label><input id="rxOeAdd" inputmode="decimal" autocomplete="off" placeholder="Ex.: +2,00" type="text"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rx-helper"><strong>Dica:</strong> se sua receita tiver “ADD”, “Adição” ou um valor de perto, coloque esse número no campo Adição.</div>
+    <div class="rx-form-error" id="rxFormError">Digite pelo menos um dado da sua receita para continuar.</div>
+    <div class="rx-modal-actions">
+      <button class="rx-calc-btn" id="rxCalculate" type="button">Ver indicação</button>
+      <button class="rx-clear-btn" id="rxClear" type="button">Limpar</button>
+    </div>
+
+    <div class="rx-result" id="rxResult" aria-live="polite">
+      <div class="rx-result-top">
+        <div>
+          <span class="rx-result-kicker">Opção para conferir</span>
+          <h4 id="rxResultTitle">Visão simples</h4>
+          <p id="rxResultText"></p>
+        </div>
+        <div class="rx-result-price"><span>Óculos completo</span><strong id="rxResultPrice">R$ 299</strong></div>
+      </div>
+      <div class="rx-result-actions">
+        <a class="rx-result-whatsapp" id="rxResultWhatsapp" href="#" target="_blank" rel="noopener">Confirmar no WhatsApp</a>
+      </div>
+      <p class="rx-result-note">Ferramenta orientativa. A escolha da lente deve ser confirmada a partir da receita completa e da avaliação de um profissional.</p>
+    </div>
+  </div>
+</div>
+
 <div aria-describedby="cookieText" aria-label="Preferências de cookies" class="cookie-banner" id="cookieBanner" role="dialog">
 <div class="cookie-banner-inner">
 <div class="cookie-copy">
@@ -1531,6 +1710,97 @@ html{scroll-padding-top:150px}
   var seen = false;
   try { seen = sessionStorage.getItem(KEY) === '1'; } catch(e){}
   if(!seen){ window.setTimeout(openPopup, 450); }
+})();
+</script>
+
+
+<script id="ventura-simulador-receita-js-v1">
+(function(){
+  var openBtn = document.getElementById('rxOpenSimulator');
+  var overlay = document.getElementById('rxSimulatorModal');
+  var closeBtn = document.getElementById('rxCloseSimulator');
+  var calcBtn = document.getElementById('rxCalculate');
+  var clearBtn = document.getElementById('rxClear');
+  var result = document.getElementById('rxResult');
+  var error = document.getElementById('rxFormError');
+  if(!openBtn || !overlay || !closeBtn || !calcBtn || !clearBtn || !result || !error) return;
+
+  var ids = ['rxOdEsf','rxOdCil','rxOdEixo','rxOdAdd','rxOeEsf','rxOeCil','rxOeEixo','rxOeAdd'];
+  var fields = ids.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+  var addFields = [document.getElementById('rxOdAdd'), document.getElementById('rxOeAdd')].filter(Boolean);
+  var title = document.getElementById('rxResultTitle');
+  var text = document.getElementById('rxResultText');
+  var price = document.getElementById('rxResultPrice');
+  var whatsapp = document.getElementById('rxResultWhatsapp');
+
+  function openModal(){
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    window.setTimeout(function(){ if(fields[0]) fields[0].focus(); },120);
+  }
+  function closeModal(){
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    openBtn.focus();
+  }
+  function numericValue(value){
+    if(!value) return null;
+    var cleaned = String(value).trim().replace(/\s/g,'').replace(',','.').replace(/[^0-9+\-.]/g,'');
+    if(!cleaned || cleaned==='+' || cleaned==='-' || cleaned==='.') return null;
+    var parsed = parseFloat(cleaned);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+  function hasAnyData(){ return fields.some(function(field){ return field.value.trim() !== ''; }); }
+  function hasAddition(){
+    return addFields.some(function(field){
+      var value = numericValue(field.value);
+      return value !== null && Math.abs(value) > 0;
+    });
+  }
+  function showResult(){
+    if(!hasAnyData()){
+      error.classList.add('show');
+      result.classList.remove('show');
+      return;
+    }
+    error.classList.remove('show');
+    var multifocal = hasAddition();
+    var label = multifocal ? 'Multifocal' : 'Visão simples';
+    title.textContent = label;
+    price.textContent = multifocal ? 'R$ 399' : 'R$ 299';
+    text.textContent = multifocal
+      ? 'Você informou Adição / ADD na receita. Esse dado é normalmente usado quando há correção para longe e para perto, por isso a opção a conferir é multifocal.'
+      : 'Não encontramos Adição / ADD nos campos preenchidos. Entre as duas opções anunciadas, a opção a conferir é visão simples.';
+    var message = 'Olá! Fiz o simulador de receita no site da Óticas Ventura e apareceu a opção ' + label + ' (' + (multifocal ? 'R$ 399' : 'R$ 299') + '). Gostaria de confirmar minha receita com vocês.';
+    whatsapp.href = 'https://wa.me/5522981061423?text=' + encodeURIComponent(message);
+    result.classList.add('show');
+    result.scrollIntoView({behavior:'smooth',block:'nearest'});
+    if(typeof gtag === 'function'){
+      gtag('event','simulador_receita_resultado',{event_category:'engajamento',event_label:label});
+    }
+  }
+  function clearForm(){
+    fields.forEach(function(field){ field.value=''; });
+    error.classList.remove('show');
+    result.classList.remove('show');
+    if(fields[0]) fields[0].focus();
+  }
+
+  openBtn.addEventListener('click',function(){
+    openModal();
+    if(typeof gtag === 'function') gtag('event','simulador_receita_aberto',{event_category:'engajamento'});
+  });
+  closeBtn.addEventListener('click',closeModal);
+  overlay.addEventListener('click',function(event){ if(event.target===overlay) closeModal(); });
+  document.addEventListener('keydown',function(event){ if(event.key==='Escape' && overlay.classList.contains('is-open')) closeModal(); });
+  calcBtn.addEventListener('click',showResult);
+  clearBtn.addEventListener('click',clearForm);
+  fields.forEach(function(field){
+    field.addEventListener('input',function(){ error.classList.remove('show'); result.classList.remove('show'); });
+    field.addEventListener('keydown',function(event){ if(event.key==='Enter'){ event.preventDefault(); showResult(); } });
+  });
 })();
 </script>
 
