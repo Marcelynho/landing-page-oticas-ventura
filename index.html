@@ -839,6 +839,41 @@ html{scroll-padding-top:150px}
   @media(max-width:700px){.lens-sim-section{padding:54px 0 60px}.lens-sim-section .container{padding-left:16px;padding-right:16px}.lens-sim-shell{gap:22px}.lens-sim-copy h2{font-size:36px;line-height:1.04}.lens-sim-copy p{font-size:14px;line-height:1.62}.lens-sim-points{margin-top:18px}.lens-sim-point{font-size:12px}.lens-compare-wrap{width:calc(100% + 32px);margin-left:-16px;margin-right:-16px}.lens-compare-top,.lens-compare-bottom{padding-left:16px;padding-right:16px}.lens-compare-top{margin-bottom:10px}.lens-compare{height:118vw;max-height:500px;min-height:390px;border-radius:0}.lens-label{top:13px;padding:8px 10px;font-size:9px}.lens-label-before{left:12px}.lens-label-after{right:12px}.lens-handle{width:48px;height:48px}.lens-compare-bottom{display:block;margin-top:10px}.lens-compare-hint{display:block;margin-top:5px}}
 </style>
 
+
+<style id="ventura-lens-layout-fix-final">
+/* Correção final do simulador: mantém o comparador compacto e elimina a sobra lateral sem aumentar a imagem */
+.lens-sim-section{width:100%;overflow:hidden}
+.lens-sim-section .container{width:min(1180px,calc(100% - 30px));max-width:none;padding-left:0;padding-right:0;margin-left:auto;margin-right:auto}
+.lens-sim-shell{grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);gap:36px;align-items:center}
+.lens-sim-copy{max-width:430px;padding-top:0}
+.lens-compare-wrap{width:min(650px,100%);justify-self:end;min-width:0}
+.lens-compare{width:100%;height:clamp(390px,38vw,500px)}
+
+@media (min-width:1211px){
+  .lens-compare-wrap{margin-right:calc((100vw - 1180px)/-2)}
+  .lens-compare{border-radius:28px 0 0 28px}
+}
+@media (min-width:981px) and (max-width:1210px){
+  .lens-compare-wrap{margin-right:-15px}
+  .lens-compare{border-radius:28px 0 0 28px}
+}
+@media (max-width:980px){
+  .lens-sim-section .container{width:min(100% - 30px,1180px);padding-left:0;padding-right:0}
+  .lens-sim-shell{grid-template-columns:1fr;gap:28px}
+  .lens-sim-copy{max-width:720px}
+  .lens-compare-wrap{width:min(760px,100%);max-width:760px;margin:0 auto;justify-self:center}
+  .lens-compare{height:min(66vw,500px);border-radius:24px}
+}
+@media (max-width:700px){
+  .lens-sim-section{padding:52px 0 58px}
+  .lens-sim-section .container{width:calc(100% - 28px)}
+  .lens-sim-shell{gap:22px}
+  .lens-compare-wrap{width:100%;max-width:none;margin:0}
+  .lens-compare-top,.lens-compare-bottom{padding-left:0;padding-right:0}
+  .lens-compare{width:100%;height:min(112vw,460px);min-height:360px;border-radius:20px}
+}
+</style>
+
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
