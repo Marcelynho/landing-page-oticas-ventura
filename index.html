@@ -910,6 +910,96 @@ html{scroll-padding-top:150px}
   .lens-compare-hint{display:block;margin-top:5px}
 }
 </style>
+
+<style id="ventura-lens-layout-fullwidth-real-v2">
+/* Correção real: texto em cima e simulador 100% de ponta a ponta, sem sobras laterais. */
+.lens-sim-section{
+  width:100%;
+  margin:0;
+  padding:56px 0 64px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#f8fbff 0%,#eef5fd 100%);
+  border-top:1px solid #e7eef7;
+  border-bottom:1px solid #e7eef7;
+}
+.lens-sim-shell{
+  display:block !important;
+  width:100% !important;
+  max-width:none !important;
+  margin:0 !important;
+}
+.lens-sim-copy{
+  display:block !important;
+  width:100%;
+  max-width:1180px !important;
+  margin:0 auto 26px !important;
+  padding:0 24px !important;
+  background:none !important;
+}
+.lens-sim-copy h2{
+  max-width:700px !important;
+  font-size:clamp(34px,4vw,56px);
+}
+.lens-sim-copy p{max-width:700px !important;}
+.lens-sim-points{max-width:700px;}
+.lens-sim-cta{align-self:flex-start;margin-top:22px;}
+.lens-compare-wrap{
+  width:100vw !important;
+  max-width:none !important;
+  min-width:100vw !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  padding:0 !important;
+  background:#eaf2fb;
+}
+.lens-compare-top,
+.lens-compare-bottom{
+  width:100%;
+  max-width:1280px;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding-left:24px;
+  padding-right:24px;
+}
+.lens-compare-top{margin-top:0 !important;margin-bottom:12px !important;}
+.lens-compare{
+  width:100% !important;
+  max-width:none !important;
+  height:clamp(430px,53vw,650px) !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:#dce5ef;
+}
+.lens-compare-layer img{object-position:center 35% !important;}
+.lens-label{top:18px;}
+.lens-label-before{left:24px !important;}
+.lens-label-after{right:24px !important;}
+.lens-divider{box-shadow:0 0 0 1px rgba(7,26,56,.08),0 0 18px rgba(0,0,0,.12);}
+@media(max-width:880px){
+  .lens-sim-section{padding:48px 0 56px;}
+  .lens-sim-copy{margin-bottom:22px !important;padding:0 18px !important;}
+  .lens-compare-top,.lens-compare-bottom{padding-left:18px;padding-right:18px;}
+  .lens-compare{height:min(82vw,520px) !important;}
+}
+@media(max-width:700px){
+  .lens-sim-section{padding:42px 0 50px;}
+  .lens-sim-copy{padding:0 16px !important;margin-bottom:18px !important;}
+  .lens-sim-copy h2{font-size:36px;line-height:1.04;}
+  .lens-sim-copy p{font-size:14px;line-height:1.62;}
+  .lens-sim-point{font-size:12px;}
+  .lens-sim-cta{width:100%;justify-content:center;}
+  .lens-compare-top,.lens-compare-bottom{padding-left:16px;padding-right:16px;}
+  .lens-compare-top{margin-bottom:10px !important;}
+  .lens-compare{height:min(118vw,470px) !important;min-height:360px;border-radius:0 !important;}
+  .lens-label{top:12px;padding:8px 10px;font-size:9px;}
+  .lens-label-before{left:12px !important;}
+  .lens-label-after{right:12px !important;}
+  .lens-handle{width:48px;height:48px;}
+  .lens-compare-bottom{display:block;margin-top:10px !important;}
+  .lens-compare-hint{display:block;margin-top:5px;}
+}
+</style>
+
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
