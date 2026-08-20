@@ -673,20 +673,24 @@ html{scroll-padding-top:150px}
 .frame-banner-copy small{color:#617388;font-size:12px;font-weight:600}
 .frame-banner-price{display:inline-flex;align-items:flex-end;gap:4px;white-space:nowrap;color:#1b5fb5;font-family:"Playfair Display",serif;font-size:38px;line-height:.92;letter-spacing:-.04em}
 .frame-banner-price span{font-family:"DM Sans",sans-serif;color:#0b254b;font-size:15px;font-weight:800;letter-spacing:0}
-.entry-offer-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(5,19,42,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility .22s ease;z-index:120}
+.entry-offer-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(5,19,42,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s ease;z-index:120}
 .entry-offer-overlay.is-open{opacity:1;visibility:visible;pointer-events:auto}
-.entry-offer-popup{position:relative;width:min(520px,100%);padding:30px 28px 26px;border-radius:28px;background:linear-gradient(135deg,#081f43 0%,#0d336c 100%);box-shadow:0 28px 70px rgba(5,25,55,.28);color:#fff;overflow:hidden}
-.entry-offer-popup::before{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(216,180,108,.28),transparent 66%)}
-.entry-offer-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#dbe7f7;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.entry-offer-popup h3{position:relative;z-index:1;margin-top:16px;color:#fff;font-size:clamp(31px,4.4vw,48px);line-height:.96;letter-spacing:-.04em}
-.entry-offer-popup p{position:relative;z-index:1;max-width:340px;margin-top:14px;color:#d3dfec;font-size:15px;line-height:1.6}
-.entry-offer-price{position:relative;z-index:1;display:inline-flex;align-items:flex-start;gap:6px;margin-top:18px;color:#fff;font-family:"Playfair Display",serif;font-size:58px;line-height:.88;letter-spacing:-.05em}
-.entry-offer-price span{margin-top:9px;font-family:"DM Sans",sans-serif;color:#d8b46c;font-size:16px;font-weight:800;letter-spacing:0}
-.entry-offer-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.entry-offer-popup{position:relative;width:min(520px,100%);padding:30px 28px 26px;border:1px solid rgba(255,255,255,.10);border-radius:28px;background:linear-gradient(145deg,#071a38 0%,#0b2b5e 62%,#11468f 100%);box-shadow:0 34px 90px rgba(5,20,45,.38);color:#fff;overflow:hidden;transform:translateY(18px) scale(.96);opacity:.2;transition:transform .34s cubic-bezier(.2,.8,.2,1),opacity .28s ease}
+.entry-offer-popup::before{content:"";position:absolute;right:-66px;top:-66px;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(216,180,108,.34),transparent 66%)}
+.entry-offer-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border:1px solid rgba(216,180,108,.28);border-radius:999px;background:rgba(216,180,108,.10);color:#f4dfb7;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.entry-offer-popup h3{position:relative;z-index:1;max-width:390px;margin-top:15px;color:#fff;font-size:clamp(31px,4.4vw,48px);line-height:.96;letter-spacing:-.045em}
+.entry-offer-popup p{position:relative;z-index:1;max-width:390px;margin-top:12px;color:#d3dfec;font-size:15px;line-height:1.56}
+.entry-offer-price{position:relative;z-index:1;display:inline-flex;align-items:flex-start;gap:7px;margin-top:16px;padding:13px 17px 12px;border:1px solid rgba(216,180,108,.24);border-radius:18px;background:rgba(255,255,255,.07);color:#fff;font-family:"Playfair Display",serif;font-size:64px;line-height:.82;letter-spacing:-.055em;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.entry-offer-price span{margin-top:8px;font-family:"DM Sans",sans-serif;color:#d8b46c;font-size:16px;font-weight:900;letter-spacing:0}
+.entry-offer-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .entry-offer-actions .btn{min-height:50px;border-radius:14px;padding:0 20px}
 .entry-offer-actions .btn-outline{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#fff}
+.entry-offer-actions .entry-whatsapp{background:#18a957!important;border-color:#18a957!important;color:#fff!important;box-shadow:0 12px 28px rgba(24,169,87,.28)!important}
 .entry-offer-close{position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:0;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:1;cursor:pointer}
-.entry-offer-note{position:relative;z-index:1;margin-top:12px;color:#c6d5e7;font-size:11px;line-height:1.45}
+.entry-offer-note{position:relative;z-index:1;margin-top:11px;color:#b9c9dc;font-size:10.5px;line-height:1.4}
+.entry-offer-urgency{position:relative;z-index:1;display:flex;align-items:center;gap:8px;margin-top:12px;color:#f1d9aa;font-size:12px;font-weight:800}
+.entry-offer-urgency::before{content:"";width:7px;height:7px;border-radius:50%;background:#d8b46c;box-shadow:0 0 0 5px rgba(216,180,108,.10)}
+.entry-offer-overlay.is-open .entry-offer-popup{transform:translateY(0) scale(1);opacity:1}
 .hero-actions{margin-top:24px;gap:11px}
 .hero-actions .btn{min-height:52px;padding:0 22px;border-radius:14px;font-size:14px}
 .hero-actions .btn-primary{background:#0b2b58;border-color:#0b2b58;box-shadow:0 12px 26px rgba(11,43,88,.17)}
@@ -764,13 +768,15 @@ html{scroll-padding-top:150px}
   .frame-banner-price{font-size:34px}
   .frame-banner-price span{font-size:14px}
   .entry-offer-overlay{padding:14px}
-  .entry-offer-popup{padding:24px 18px 20px;border-radius:24px}
-  .entry-offer-popup h3{margin-top:14px;font-size:34px}
-  .entry-offer-popup p{font-size:14px}
-  .entry-offer-price{font-size:48px}
+  .entry-offer-popup{width:min(430px,100%);padding:21px 17px 17px;border-radius:23px}
+  .entry-offer-popup h3{margin-top:12px;font-size:31px;line-height:.98}
+  .entry-offer-popup p{margin-top:10px;font-size:13px;line-height:1.48}
+  .entry-offer-price{margin-top:13px;padding:11px 14px 10px;border-radius:16px;font-size:50px}
   .entry-offer-price span{font-size:14px}
-  .entry-offer-actions{display:grid;grid-template-columns:1fr;gap:9px}
-  .entry-offer-actions .btn{width:100%}
+  .entry-offer-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:15px}
+  .entry-offer-actions .btn{width:100%;min-height:46px;padding:0 12px;font-size:12px}
+  .entry-offer-note{margin-top:9px;font-size:9.5px}
+  .entry-offer-urgency{margin-top:10px;font-size:11px}
   .hero-actions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:19px}
   .hero-actions .btn{width:100%;min-height:51px}
   .hero-photo{min-height:430px;margin-top:0;border-radius:24px;box-shadow:0 18px 38px rgba(8,31,67,.14)}
@@ -1166,11 +1172,12 @@ html{scroll-padding-top:150px}
     <button class="entry-offer-close" type="button" id="entryOfferClose" aria-label="Fechar oferta">×</button>
     <span class="entry-offer-badge">Oferta especial</span>
     <h3 id="entry-offer-title">Armação preço único</h3>
+    <div class="entry-offer-urgency">Oferta por tempo limitado</div>
     <div class="entry-offer-price"><span>R$</span>49,90</div>
     <p>Modelos selecionados com valor promocional para quem entrar em contato agora.</p>
     <div class="entry-offer-actions">
       <a class="btn btn-light" href="#oferta-armacao" id="entryOfferSee">Ver oferta</a>
-      <a class="btn btn-outline whatsapp-link" href="#">Chamar no WhatsApp</a>
+      <a class="btn entry-whatsapp whatsapp-link" href="#">WhatsApp</a>
     </div>
     <div class="entry-offer-note">Confirme disponibilidade dos modelos promocionais na loja.</div>
   </div>
@@ -1491,7 +1498,7 @@ html{scroll-padding-top:150px}
   }
   var seen = false;
   try { seen = sessionStorage.getItem(KEY) === '1'; } catch(e){}
-  if(!seen){ window.setTimeout(openPopup, 700); }
+  if(!seen){ window.setTimeout(openPopup, 450); }
 })();
 </script>
 
