@@ -1066,6 +1066,50 @@ html{scroll-padding-top:150px}
 @media(prefers-reduced-motion:reduce){.rx-open-btn,.rx-modal,.rx-modal-overlay{transition:none}}
 </style>
 
+
+<style id="ventura-aproxima-simulador-precos-v2">
+/* Ajuste pontual: simulador mais compacto e visualmente ligado ao bloco de R$ 299 / R$ 399. */
+.rx-simulator-section{
+  padding:34px 0 10px !important;
+  background:#fff !important;
+}
+.rx-simulator-card{
+  gap:22px !important;
+  padding:22px 26px !important;
+  border-radius:22px !important;
+  box-shadow:0 12px 30px rgba(8,35,77,.07) !important;
+}
+.rx-simulator-card h2{
+  margin-top:6px !important;
+  font-size:clamp(25px,2.7vw,34px) !important;
+}
+.rx-simulator-card p{
+  margin-top:7px !important;
+  font-size:14px !important;
+}
+.rx-simulator-prices{
+  margin-top:11px !important;
+}
+.rx-price-pill{
+  padding:7px 10px !important;
+}
+.rx-open-btn{
+  min-height:48px !important;
+  min-width:200px !important;
+}
+.offers-premium-section{
+  padding-top:12px !important;
+}
+@media(max-width:700px){
+  .rx-simulator-section{padding:26px 0 7px !important;}
+  .rx-simulator-card{padding:19px 18px !important;gap:16px !important;border-radius:20px !important;}
+  .rx-simulator-card h2{font-size:27px !important;}
+  .rx-simulator-card p{font-size:13px !important;line-height:1.48 !important;}
+  .rx-simulator-prices{margin-top:9px !important;}
+  .rx-open-btn{min-height:47px !important;width:100% !important;}
+  .offers-premium-section{padding-top:8px !important;}
+}
+</style>
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
@@ -1175,8 +1219,8 @@ html{scroll-padding-top:150px}
     <div class="rx-simulator-card reveal">
       <div class="rx-simulator-copy">
         <span class="rx-simulator-label">Simulador de receita</span>
-        <h2 id="rx-simulator-title">Sua receita pode indicar qual opção?</h2>
-        <p>Digite os dados principais da receita e veja qual das duas opções anunciadas vale a pena conferir com nossa equipe.</p>
+        <h2 id="rx-simulator-title">Tem sua receita em mãos?</h2>
+        <p>Digite seu grau e veja qual opção vale a pena conferir antes de escolher seu óculos.</p>
         <div class="rx-simulator-prices" aria-label="Opções do simulador">
           <span class="rx-price-pill">Visão simples <strong>R$ 299</strong></span>
           <span class="rx-price-pill">Multifocal <strong>R$ 399</strong></span>
