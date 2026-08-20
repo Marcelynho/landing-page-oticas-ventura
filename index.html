@@ -802,78 +802,114 @@ html{scroll-padding-top:150px}
 
 
 <style id="ventura-lens-simulator-style">
-  .lens-sim-section{padding:78px 0 84px;background:linear-gradient(180deg,#f6f9fd 0%,#fff 100%);border-top:1px solid #edf2f8;border-bottom:1px solid #edf2f8}
-  .lens-sim-section *{box-sizing:border-box}
-  .lens-sim-section .container{max-width:1360px;padding-left:20px;padding-right:20px}
-  .lens-sim-shell{display:grid;grid-template-columns:minmax(280px,.56fr) minmax(0,1.44fr);gap:28px;align-items:start;font-family:"Montserrat",Arial,sans-serif}
-  .lens-sim-copy{max-width:390px;padding-top:10px}
-  .lens-sim-kicker{display:inline-flex;align-items:center;gap:9px;color:#1c5da8;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
-  .lens-sim-kicker::before{content:"";width:24px;height:2px;border-radius:999px;background:#d8b46c}
-  .lens-sim-copy h2{margin:14px 0 0;color:#071a38;font-family:"Montserrat",Arial,sans-serif;font-size:clamp(34px,3.5vw,50px);line-height:1.02;letter-spacing:-.045em;font-weight:800}
-  .lens-sim-copy p{margin:18px 0 0;color:#63748a;font-size:15px;line-height:1.7;font-weight:500}
-  .lens-sim-points{display:grid;gap:10px;margin-top:23px}
-  .lens-sim-point{display:flex;align-items:center;gap:11px;color:#263d5b;font-size:13px;font-weight:700}
-  .lens-sim-point i{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#d8b46c}
-  .lens-sim-cta{margin-top:25px;border-radius:14px!important;font-family:"Montserrat",Arial,sans-serif;font-size:13px}
-  .lens-compare-wrap{min-width:0;width:100%}
-  .lens-compare-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px;color:#67788e;font-size:11px;font-weight:700}
-  .lens-compare-top strong{color:#17395f;font-size:12px;font-weight:800}
-  .lens-compare{--split:50%;position:relative;width:100%;height:clamp(395px,45vw,580px);overflow:hidden;border-radius:28px;background:#dce5ef;box-shadow:0 24px 58px rgba(8,31,67,.15);user-select:none;touch-action:none;isolation:isolate}
-  .lens-compare-layer{position:absolute;inset:0}
-  .lens-compare-layer img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%;pointer-events:none}
-  .lens-before img{filter:saturate(.72) contrast(.82) brightness(1.10) blur(.35px);transform:scale(1.012)}
-  .lens-before::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.92) 0 2%,rgba(170,213,255,.66) 3%,rgba(80,150,230,.27) 8%,transparent 19%),radial-gradient(circle at 73% 21%,rgba(255,255,255,.86) 0 1.3%,rgba(178,219,255,.60) 2.5%,rgba(96,164,238,.24) 7%,transparent 18%),linear-gradient(115deg,rgba(133,190,255,.22),rgba(255,255,255,.10) 38%,rgba(105,168,238,.18));mix-blend-mode:screen;pointer-events:none}
-  .lens-after{clip-path:inset(0 0 0 var(--split));z-index:2}
-  .lens-after img{filter:saturate(1.03) contrast(1.055) brightness(.99)}
-  .lens-after::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,28,61,.01),rgba(5,28,61,.12));pointer-events:none}
-  .lens-label{position:absolute;top:18px;z-index:5;padding:9px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(7,26,56,.62);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
-  .lens-label-before{left:18px}.lens-label-after{right:18px}
-  .lens-divider{position:absolute;left:var(--split);top:0;bottom:0;z-index:6;width:2px;background:rgba(255,255,255,.94);transform:translateX(-1px);box-shadow:0 0 0 1px rgba(7,26,56,.08),0 0 24px rgba(0,0,0,.16);pointer-events:none}
-  .lens-handle{position:absolute;left:var(--split);top:50%;z-index:7;width:54px;height:54px;display:grid;place-items:center;border:2px solid #fff;border-radius:50%;background:#0a2b60;color:#fff;transform:translate(-50%,-50%);box-shadow:0 10px 28px rgba(0,0,0,.22);pointer-events:none}
-  .lens-handle::before{content:"‹   ›";white-space:pre;font-size:20px;font-weight:800;letter-spacing:2px;transform:translateY(-1px)}
-  .lens-range{position:absolute;inset:0;z-index:8;width:100%;height:100%;opacity:0;cursor:ew-resize}
-  .lens-compare-bottom{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-top:12px;color:#7a889a;font-size:10px;line-height:1.5;font-weight:500}
-  .lens-compare-bottom strong{color:#465f7e;font-weight:700}
-  .lens-compare-hint{white-space:nowrap;color:#1c5da8;font-weight:800}
-  @media(max-width:980px){.lens-sim-section .container{padding-left:18px;padding-right:18px}.lens-sim-shell{grid-template-columns:1fr;gap:26px}.lens-sim-copy{max-width:760px;padding-top:0}.lens-compare{height:min(70vw,560px)}}
-  @media(max-width:700px){.lens-sim-section{padding:54px 0 60px}.lens-sim-section .container{padding-left:16px;padding-right:16px}.lens-sim-shell{gap:22px}.lens-sim-copy h2{font-size:36px;line-height:1.04}.lens-sim-copy p{font-size:14px;line-height:1.62}.lens-sim-points{margin-top:18px}.lens-sim-point{font-size:12px}.lens-compare-wrap{width:calc(100% + 32px);margin-left:-16px;margin-right:-16px}.lens-compare-top,.lens-compare-bottom{padding-left:16px;padding-right:16px}.lens-compare-top{margin-bottom:10px}.lens-compare{height:118vw;max-height:500px;min-height:390px;border-radius:0}.lens-label{top:13px;padding:8px 10px;font-size:9px}.lens-label-before{left:12px}.lens-label-after{right:12px}.lens-handle{width:48px;height:48px}.lens-compare-bottom{display:block;margin-top:10px}.lens-compare-hint{display:block;margin-top:5px}}
+/* SIMULADOR FULL-BLEED FINAL — sem gutters laterais e sem esticar a foto desnecessariamente */
+.lens-sim-section{
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background:#f5f8fc;
+  border-top:1px solid #e7eef7;
+  border-bottom:1px solid #e7eef7;
+}
+.lens-sim-section *{box-sizing:border-box}
+.lens-sim-shell{
+  width:100%;
+  max-width:none;
+  margin:0;
+  display:grid;
+  grid-template-columns:minmax(370px,42%) minmax(0,58%);
+  gap:0;
+  align-items:stretch;
+  font-family:"Montserrat",Arial,sans-serif;
+}
+.lens-sim-copy{
+  max-width:none;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:64px clamp(30px,5vw,72px) 64px max(28px,calc((100vw - 1180px)/2 + 15px));
+  background:linear-gradient(135deg,#f8fbff 0%,#eef5fd 100%);
+}
+.lens-sim-kicker{display:inline-flex;align-items:center;gap:9px;color:#1c5da8;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.lens-sim-kicker::before{content:"";width:24px;height:2px;border-radius:999px;background:#d8b46c}
+.lens-sim-copy h2{max-width:470px;margin:14px 0 0;color:#071a38;font-family:"Montserrat",Arial,sans-serif;font-size:clamp(36px,3.7vw,54px);line-height:1.01;letter-spacing:-.045em;font-weight:800}
+.lens-sim-copy p{max-width:470px;margin:18px 0 0;color:#63748a;font-size:15px;line-height:1.68;font-weight:500}
+.lens-sim-points{display:grid;gap:10px;margin-top:22px}
+.lens-sim-point{display:flex;align-items:center;gap:11px;color:#263d5b;font-size:13px;font-weight:700}
+.lens-sim-point i{width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#d8b46c}
+.lens-sim-cta{align-self:flex-start;margin-top:24px;border-radius:14px!important;font-family:"Montserrat",Arial,sans-serif;font-size:13px}
+
+.lens-compare-wrap{
+  min-width:0;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:34px 0 28px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:#eaf2fb;
+}
+.lens-compare-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 24px 12px 0;color:#67788e;font-size:11px;font-weight:700}
+.lens-compare-top strong{color:#17395f;font-size:12px;font-weight:800}
+.lens-compare{
+  --split:50%;
+  position:relative;
+  width:100%;
+  height:clamp(390px,41vw,520px);
+  overflow:hidden;
+  border-radius:28px 0 0 28px;
+  background:#dce5ef;
+  box-shadow:0 24px 58px rgba(8,31,67,.15);
+  user-select:none;
+  touch-action:none;
+  isolation:isolate;
+}
+.lens-compare-layer{position:absolute;inset:0}
+.lens-compare-layer img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%;pointer-events:none}
+.lens-before img{filter:saturate(.72) contrast(.82) brightness(1.10) blur(.35px);transform:scale(1.012)}
+.lens-before::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.92) 0 2%,rgba(170,213,255,.66) 3%,rgba(80,150,230,.27) 8%,transparent 19%),radial-gradient(circle at 73% 21%,rgba(255,255,255,.86) 0 1.3%,rgba(178,219,255,.60) 2.5%,rgba(96,164,238,.24) 7%,transparent 18%),linear-gradient(115deg,rgba(133,190,255,.22),rgba(255,255,255,.10) 38%,rgba(105,168,238,.18));mix-blend-mode:screen;pointer-events:none}
+.lens-after{clip-path:inset(0 0 0 var(--split));z-index:2}
+.lens-after img{filter:saturate(1.03) contrast(1.055) brightness(.99)}
+.lens-after::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,28,61,.01),rgba(5,28,61,.12));pointer-events:none}
+.lens-label{position:absolute;top:18px;z-index:5;padding:9px 12px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(7,26,56,.62);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.lens-label-before{left:18px}.lens-label-after{right:18px}
+.lens-divider{position:absolute;left:var(--split);top:0;bottom:0;z-index:6;width:2px;background:rgba(255,255,255,.94);transform:translateX(-1px);box-shadow:0 0 0 1px rgba(7,26,56,.08),0 0 24px rgba(0,0,0,.16);pointer-events:none}
+.lens-handle{position:absolute;left:var(--split);top:50%;z-index:7;width:54px;height:54px;display:grid;place-items:center;border:2px solid #fff;border-radius:50%;background:#0a2b60;color:#fff;transform:translate(-50%,-50%);box-shadow:0 10px 28px rgba(0,0,0,.22);pointer-events:none}
+.lens-handle::before{content:"‹   ›";white-space:pre;font-size:20px;font-weight:800;letter-spacing:2px;transform:translateY(-1px)}
+.lens-range{position:absolute;inset:0;z-index:8;width:100%;height:100%;opacity:0;cursor:ew-resize}
+.lens-compare-bottom{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin:12px 24px 0 0;color:#7a889a;font-size:10px;line-height:1.5;font-weight:500}
+.lens-compare-bottom strong{color:#465f7e;font-weight:700}
+.lens-compare-hint{white-space:nowrap;color:#1c5da8;font-weight:800}
+
+@media(max-width:880px){
+  .lens-sim-shell{grid-template-columns:1fr}
+  .lens-sim-copy{padding:48px 24px 36px;background:linear-gradient(180deg,#f8fbff 0%,#eef5fd 100%)}
+  .lens-sim-copy h2,.lens-sim-copy p{max-width:720px}
+  .lens-compare-wrap{padding:20px 0 26px;background:#eaf2fb}
+  .lens-compare-top,.lens-compare-bottom{margin-left:18px;margin-right:18px}
+  .lens-compare{height:min(72vw,520px);border-radius:0}
+}
+@media(max-width:700px){
+  .lens-sim-copy{padding:42px 18px 30px}
+  .lens-sim-copy h2{font-size:36px;line-height:1.04}
+  .lens-sim-copy p{font-size:14px;line-height:1.62}
+  .lens-sim-points{margin-top:18px}
+  .lens-sim-point{font-size:12px}
+  .lens-sim-cta{width:100%;justify-content:center}
+  .lens-compare-wrap{padding:16px 0 22px}
+  .lens-compare-top,.lens-compare-bottom{margin-left:16px;margin-right:16px}
+  .lens-compare-top{margin-bottom:10px}
+  .lens-compare{width:100%;height:min(118vw,470px);min-height:360px;border-radius:0;box-shadow:none}
+  .lens-label{top:13px;padding:8px 10px;font-size:9px}
+  .lens-label-before{left:12px}.lens-label-after{right:12px}
+  .lens-handle{width:48px;height:48px}
+  .lens-compare-bottom{display:block;margin-top:10px}
+  .lens-compare-hint{display:block;margin-top:5px}
+}
 </style>
-
-
-<style id="ventura-lens-layout-fix-final">
-/* Correção final do simulador: mantém o comparador compacto e elimina a sobra lateral sem aumentar a imagem */
-.lens-sim-section{width:100%;overflow:hidden}
-.lens-sim-section .container{width:min(1180px,calc(100% - 30px));max-width:none;padding-left:0;padding-right:0;margin-left:auto;margin-right:auto}
-.lens-sim-shell{grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);gap:36px;align-items:center}
-.lens-sim-copy{max-width:430px;padding-top:0}
-.lens-compare-wrap{width:min(650px,100%);justify-self:end;min-width:0}
-.lens-compare{width:100%;height:clamp(390px,38vw,500px)}
-
-@media (min-width:1211px){
-  .lens-compare-wrap{margin-right:calc((100vw - 1180px)/-2)}
-  .lens-compare{border-radius:28px 0 0 28px}
-}
-@media (min-width:981px) and (max-width:1210px){
-  .lens-compare-wrap{margin-right:-15px}
-  .lens-compare{border-radius:28px 0 0 28px}
-}
-@media (max-width:980px){
-  .lens-sim-section .container{width:min(100% - 30px,1180px);padding-left:0;padding-right:0}
-  .lens-sim-shell{grid-template-columns:1fr;gap:28px}
-  .lens-sim-copy{max-width:720px}
-  .lens-compare-wrap{width:min(760px,100%);max-width:760px;margin:0 auto;justify-self:center}
-  .lens-compare{height:min(66vw,500px);border-radius:24px}
-}
-@media (max-width:700px){
-  .lens-sim-section{padding:52px 0 58px}
-  .lens-sim-section .container{width:calc(100% - 28px)}
-  .lens-sim-shell{gap:22px}
-  .lens-compare-wrap{width:100%;max-width:none;margin:0}
-  .lens-compare-top,.lens-compare-bottom{padding-left:0;padding-right:0}
-  .lens-compare{width:100%;height:min(112vw,460px);min-height:360px;border-radius:20px}
-}
-</style>
-
 </head>
 <body>
 <div class="top-strip"><div class="top-strip-track"><span class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span><span aria-hidden="true" class="top-strip-text">👓 <b>Óculos com antirreflexo</b><span>Visão simples R$ 299</span><span>Multifocal R$ 399</span><span>Em até 10x no cartão</span></span></div></div>
@@ -995,7 +1031,7 @@ html{scroll-padding-top:150px}
 </section>
 
 <section class="lens-sim-section" id="simulador-lentes" aria-labelledby="lens-sim-title">
-  <div class="container lens-sim-shell">
+  <div class="lens-sim-shell">
     <div class="lens-sim-copy reveal">
       <span class="lens-sim-kicker">Simulador de lentes</span>
       <h2 id="lens-sim-title">Veja a diferença antes de escolher.</h2>
